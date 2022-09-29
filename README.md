@@ -1,6 +1,7 @@
 # Next.js-Learning-By-Doing
 
 ### Installation and preparation Next.js / Tailwind CSS / New feature 'JIT' 
+#### Links: 
 - https://nextjs.org/docs
 - https://tailwindcss.com/docs/guides/nextjs
 - https://v2.tailwindcss.com/docs/just-in-time-mode
