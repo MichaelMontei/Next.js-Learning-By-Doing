@@ -1,6 +1,6 @@
 # Next.js-Learning-By-Doing
 
-- ![Next](images/next.jpg)
+- ![Next](/images/next.jpeg)
 
 ### Installation and preparation Next.js / Tailwind CSS / New feature 'JIT' 
 #### Links: 
