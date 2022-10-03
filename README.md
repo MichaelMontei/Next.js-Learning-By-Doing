@@ -17,10 +17,16 @@
                               "./components/**/*.{js,ts,jsx,tsx}"
                             <br> - add mode: "jit",
 - We also gonna install Hero-icons: npm install @heroicons/react
+<hr>
+<br>
+<br>
+<br>
 
------------------------------------------------------------------------------------------------------------------
 
-### STEP 1: Making of the Header.
+## STEP 1: Making of the Header
+
+
+<br>
 
 - First we imported the HULU Image in our header Component by Using an Image (next.js) component. This will only be visible if we import the domains from our image in our next.config.js file.
 ```js
@@ -67,8 +73,12 @@ function HeaderItem({title, Icon}) {
 ### RESULT: for the Header
 ![Header](/images//header.JPG)
 
------------------------------------------------------------------------------------------------------------------
-### STEP 2: Making of the Nav
+<hr>
+<br>
+<br>
+<br>
+
+## STEP 2: Making of the Nav
 
 - For the Navbar we are going to make use of an API to fetch all the Title (genres) and we will store our API_KEY inside our ENV file.
 - First we make a new folder Utils -> Here we gonna add the requests to our API for the title (genres). I will only use a few in the example below to get the idea. 
@@ -91,7 +101,7 @@ const API_KEY = process.env.API_KEY;
             title: 'Comedy',
             url: `/discover/movie?api_key=${API_KEY}&with_genres=35`
 ```
-- Now that we can actually fetch the data (genres) we can now show them in our Nav.js component by useing a useRouter. We will also use an OnClick function to change the genre. When we click on Top Rated we get localhost:3000/?genre=fetchTopRated
+- Now that we can actually fetch the data (genres) we can now show them in our Nav.js component by useing a useRouter. We will also use an OnClick function to change the genre. When we click on Top Rated it changes the root to localhost:3000/?genre=fetchTopRated
 ```js 
 function Nav() {
     const router = useRouter();
@@ -111,5 +121,13 @@ function Nav() {
 ### RESULT: For the Header and NAVBAR
 ![Header](/images//nav.JPG)
 
------------------------------------------------------------------------------------------------------------------
+<hr>
+<br>
+<br>
+<br>
 
+## STEP 3: Server Side Rendering + Showing the results!
+
+- To do this we gonna have to create a "special" function thats gonna tell the page to render everything server-side so the user doesn't experience a bad UX. SO in other words: The function will first be executed before the index.js will be rendered.
+- First we will need to setup our ENV key -> go to imdb.com and create an account -> settings -> API -> make a new API Key -> put this key in your ENV.Local file done!
+- 
