@@ -2,6 +2,7 @@
 
 ![Next](/images/next.jpeg)
 
+### Tutorial Hulu Website
 ### Installation and preparation Next.js / Tailwind CSS / New feature 'JIT' 
 #### Links: 
 - https://nextjs.org/docs
@@ -19,7 +20,7 @@
 
 -----------------------------------------------------------------------------------------------------------------
 
-### Step 1: Making of the Header and Nav
+### STEP 1: Making of the Header.
 
 - First we imported the HULU Image in our header Component by Using an Image (next.js) component. This will only be visible if we import the domains from our image in our next.config.js file.
 ```js
@@ -62,6 +63,53 @@ function HeaderItem({title, Icon}) {
   )
 }
 ```
------------------------------------------------------------------------------------------------------------------
-### Result: for the Header
+
+### RESULT: for the Header
 ![Header](/images//header.JPG)
+
+-----------------------------------------------------------------------------------------------------------------
+### STEP 2: Making of the Nav
+
+- For the Navbar we are going to make use of an API to fetch all the Title (genres) and we will store our API_KEY inside our ENV file.
+- First we make a new folder Utils -> Here we gonna add the requests to our API for the title (genres). I will only use a few in the example below to get the idea. 
+```js 
+const API_KEY = process.env.API_KEY;
+    export default {
+        fetchTrending: {
+            title: 'Trending',
+            url: `/trending/all/week?api_key=${API_KEY}&language=en-US`
+        },
+        fetchTopRated: {
+            title: 'Top Rated',
+            url: `/movie/top_rated?api_key=${API_KEY}&language=en-US`
+        },
+        fetchActionMovies: {
+            title: 'Action',
+            url: `/discover/movie?api_key=${API_KEY}&with_genres=28`
+        },
+        fetchComedyMovies: {
+            title: 'Comedy',
+            url: `/discover/movie?api_key=${API_KEY}&with_genres=35`
+```
+- Now that we can actually fetch the data (genres) we can now show them in our Nav.js component by useing a useRouter. We will also use an OnClick function to change the genre. When we click on Top Rated we get localhost:3000/?genre=fetchTopRated
+```js 
+function Nav() {
+    const router = useRouter();
+
+
+    return (
+        <nav className="relative">
+            <div className="flex px-10 sm:px-20 text-2xl whitespace-nowrap space-x-10 sm:space-x-20 overflow-x-scroll scrollbar-hide">
+                {Object.entries(requests).map(([key, {title, url}]) => (
+                    <h2 key={key} 
+                    onClick={() => router.push(`/?genre=${key}`) }
+                    className='last:pr-24 cursor-pointer transition duration-100 transform hover:scale-125 hover:text-white active:text-red-500'>{title}</h2>
+                    ))}
+        </div>
+```
+
+### RESULT: For the Header and NAVBAR
+![Header](/images//nav.JPG)
+
+-----------------------------------------------------------------------------------------------------------------
+
