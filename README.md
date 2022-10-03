@@ -64,4 +64,4 @@ function HeaderItem({title, Icon}) {
 ```
 -----------------------------------------------------------------------------------------------------------------
 ### Result: for the Header
-![Header](/images/header.jpeg)
+![Header](/images//header.JPG)
